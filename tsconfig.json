@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "esModuleInterop": true,
+     "moduleResolution": "node16",
+    "jsx": "react",
+    "module": "Node16",
+    "paths": {
+      "@utils/*": ["node_modules/shadcn-ui/lib/utils/*"],
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  }
+}
