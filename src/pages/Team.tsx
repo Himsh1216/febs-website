@@ -187,7 +187,7 @@ const Team = () => {
           {/* Leadership Section */}
           {(activeFilter === 'all' || activeFilter === 'leadership') && (
             <section className="mb-20 animate-section">
-              <h2 className="text-3xl font-bold text-center mb-12">Leadership</h2>
+              <h2 className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">Leadership</h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {team.leadership.map((member, index) => (
                   <MemberCard 
