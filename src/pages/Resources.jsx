@@ -72,7 +72,7 @@ const Resources = () => {
                 px-6 py-2 transition-all duration-300
                 ${activeSection === value 
                     ? "bg-[#41E5BD] hover:bg-[#2CCAA3] text-black shadow-lg shadow-[#41E5BD]/20"
-                    : "hover:bg-white/10 hover:shadow-lg hover:shadow-[#41E5BD]/10 border-white/20"
+                    : "bg-white/10 text-white border-white/20 hover:bg-white/20 hover:shadow-lg hover:shadow-[#41E5BD]/10"
                 }
             `}
         >
@@ -82,7 +82,7 @@ const Resources = () => {
 
     const ResourceCard = ({ resource, type, index }) => (
         <Card 
-            className="group relative overflow-hidden transition-all duration-500 hover:shadow-xl bg-black/40 backdrop-blur-sm border-2 border-white/5 hover:border-[#41E5BD]"
+            className="group relative overflow-hidden transition-all duration-500 hover:shadow-xl bg-white/10 backdrop-blur-sm border-2 border-white/10 hover:border-[#41E5BD]"
             onMouseEnter={() => setHoveredCard(`${type}-${index}`)}
             onMouseLeave={() => setHoveredCard(null)}
         >
@@ -102,13 +102,13 @@ const Resources = () => {
                     {resource.description}
                 </p>
                 <div className="space-y-4">
-                    <div className="flex items-center justify-between text-sm text-white/40">
+                    <div className="flex items-center justify-between text-sm text-white/60">
                         <span>Last updated: {resource.lastUpdated}</span>
                         {resource.size && <span>{resource.size}</span>}
                         {resource.users && <span>{resource.users}</span>}
                     </div>
                     <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium px-3 py-1 bg-[#41E5BD]/5 rounded-full text-[#41E5BD] border border-[#41E5BD]/10">
+                        <span className="text-sm font-medium px-3 py-1 bg-[#41E5BD]/10 rounded-full text-[#41E5BD] border border-[#41E5BD]/20">
                             {resource.type}
                         </span>
                         {type === "tool" ? (
@@ -140,14 +140,14 @@ const Resources = () => {
 
     return (
         <div className="min-h-screen relative">
-            {/* Darker gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#012C3D] via-[#025A6A] to-[#00C2CC]" />
+            {/* Lighter gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#025A6A] via-[#00C2CC] to-[#41E5BD]/50" />
             
-            {/* Darker noise texture */}
-            <div className="absolute inset-0 bg-[url('/api/placeholder/8/8')] opacity-3" />
+            {/* Noise texture */}
+            <div className="absolute inset-0 bg-[url('/api/placeholder/8/8')] opacity-10" />
             
             {/* Overlay gradient for extra depth */}
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/20" />
 
             <div className="relative z-10 py-16 px-4">
                 <div className="max-w-6xl mx-auto">
@@ -173,7 +173,7 @@ const Resources = () => {
                         {(activeSection === "all" || activeSection === "studyMaterials") && (
                             <section className="animate-fade-in">
                                 <div className="flex items-center gap-3 mb-8">
-                                    <div className="p-2 bg-[#41E5BD]/5 rounded-lg">
+                                    <div className="p-2 bg-[#41E5BD]/10 rounded-lg">
                                         <BookOpenIcon className="w-8 h-8 text-[#41E5BD]" />
                                     </div>
                                     <h2 className="text-3xl font-bold text-white">Study Materials</h2>
@@ -194,7 +194,7 @@ const Resources = () => {
                         {(activeSection === "all" || activeSection === "tools") && (
                             <section className="animate-fade-in">
                                 <div className="flex items-center gap-3 mb-8">
-                                    <div className="p-2 bg-[#41E5BD]/5 rounded-lg">
+                                    <div className="p-2 bg-[#41E5BD]/10 rounded-lg">
                                         <LinkIcon className="w-8 h-8 text-[#41E5BD]" />
                                     </div>
                                     <h2 className="text-3xl font-bold text-white">Tools</h2>
@@ -215,7 +215,7 @@ const Resources = () => {
                         {(activeSection === "all" || activeSection === "research") && (
                             <section className="animate-fade-in">
                                 <div className="flex items-center gap-3 mb-8">
-                                    <div className="p-2 bg-[#41E5BD]/5 rounded-lg">
+                                    <div className="p-2 bg-[#41E5BD]/10 rounded-lg">
                                         <SearchIcon className="w-8 h-8 text-[#41E5BD]" />
                                     </div>
                                     <h2 className="text-3xl font-bold text-white">Research Papers</h2>
