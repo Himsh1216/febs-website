@@ -335,23 +335,23 @@ const Team = () => {
     );
 
     const MemberCard = ({ member, type }) => (
-        <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-blue-500 max-w-sm mx-auto flex flex-col rounded-xl">
+        <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-blue-500 max-w-xs md:max-w-sm mx-auto flex flex-col rounded-xl">
             <CardHeader className="p-0 relative">
                 <div className="overflow-hidden">
                     <img 
                         src={member.image} 
                         alt={member.name} 
-                        className="w-full object-cover transition-transform duration-300 group-hover:scale-105 h-72"
+                        className="w-full object-cover transition-transform duration-300 group-hover:scale-105 h-48 md:h-72"
                     />
                 </div>
             </CardHeader>
-            <CardContent className="p-6 text-white flex flex-col justify-between h-64">
+            <CardContent className="p-4 md:p-6 text-white flex flex-col justify-between h-48 md:h-64">
                 <div>
-                    <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                    <p className="text-emerald-200 font-semibold mb-3">{member.role}</p>
-                    <p className="text-gray-100 line-clamp-3">{member.bio}</p>
+                    <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">{member.name}</h3>
+                    <p className="text-sm md:text-base text-emerald-200 font-semibold mb-2 md:mb-3">{member.role}</p>
+                    <p className="text-xs md:text-sm text-gray-100 line-clamp-3">{member.bio}</p>
                 </div>
-                <div className="flex gap-4 mt-4">
+                <div className="flex gap-2 md:gap-4 mt-2 md:mt-4">
                     {member.linkedin && <SocialLink href={member.linkedin} icon={LinkedinIcon} label="LinkedIn Profile" />}
                     {member.twitter && <SocialLink href={member.twitter} icon={TwitterIcon} label="Twitter Profile" />}
                     {member.email && <SocialLink href={`mailto:${member.email}`} icon={MailIcon} label="Email" />}
@@ -361,16 +361,6 @@ const Team = () => {
     );
 
     const GridLayout = ({ items, type }) => {
-        // Helper function to chunk array into rows
-        const chunk = (arr, size) => {
-            const chunked = [];
-            for (let i = 0; i < arr.length; i += size) {
-                chunked.push(arr.slice(i, i + size));
-            }
-            return chunked;
-        };
-
-        // If only one item, center it
         if (items.length === 1) {
             return (
                 <div className="grid grid-cols-3 gap-8">
@@ -381,7 +371,6 @@ const Team = () => {
             );
         }
 
-        // If two items, center them
         if (items.length === 2) {
             return (
                 <div className="grid grid-cols-3 gap-8">
@@ -395,7 +384,6 @@ const Team = () => {
             );
         }
 
-        // For 3 or more items, use regular grid
         return (
             <div className="grid md:grid-cols-3 gap-8">
                 {items.map((member) => (
@@ -442,9 +430,7 @@ const Team = () => {
                     <section className="mb-20">
                         <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-600 to-blue-600 text-transparent bg-clip-text">Managerial Team</h2>
                         <div className="space-y-12">
-                            {/* Secretary's card */}
                             <GridLayout items={[team.managerialTeam[0]]} type="managerial team" />
-                            {/* Rest of managerial team */}
                             <GridLayout items={team.managerialTeam.slice(1)} type="managerial team" />
                         </div>
                     </section>
